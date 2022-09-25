@@ -6,10 +6,11 @@ import Home from "./pages/Home";
 import NotFound from "./pages/Notfound";
 
 function App() {
+  let judul = 'Github-Finder'
   return (
     <Router>
       <div className="flex flex-col justify-between h-screen">
-        <Navbar title={"Cari-Github"} />
+        <Navbar title={judul} />
         <main className="container mx-auto mx-3 pb-12">
           <Routes>
             <Route path="/" element={<Home />} />
