@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import Spinner from "../layouts/Spinner";
+// import { useEffect, useState } from "react";
+// import Spinner from "../layouts/Spinner";
 // import UserItem from "./UserItem";
 
 function UserResults() {

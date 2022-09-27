@@ -7,6 +7,7 @@ import NotFound from "./pages/Notfound";
 import Login from "./pages/Login";
 import FormTeknisi from "./pages/FormTeknisi";
 import DaftarTeknisi from "./pages/DaftarTeknisi";
+import InputSpk from "./pages/InputSpk";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/notfound" element={<NotFound />} />
             <Route path="/*" element={<NotFound />} />
+            <Route path="/inputspk" element={<InputSpk />} />
           </Routes>
         </main>
         <Footer />
