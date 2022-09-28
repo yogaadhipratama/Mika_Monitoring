@@ -14,7 +14,7 @@ function UserResults() {
       const reader = new FileReader();
       reader.onload = (event) => {
         const data = event.target.result;
-        const wb = XLSX.read(data, {type: 'buffer'});
+        const wb = XLSX.read(data, {raw: false});
         const sheets = wb.SheetNames;
 
         // let sheets2 = XLSX.read(sheets, {raw: false})
@@ -156,7 +156,7 @@ function UserResults() {
                   <td>{spk.TID}</td>
                   <td>{spk.NAMA_MERCHANT}</td>
                   <td>{spk.KODE_AGEN}</td>
-                  <td>{spk.ALAMAT_AGEN}</td>
+                  <td>{spk.ALAMAT}</td>
                   <td>{spk.KOTA}</td>
                   <td>{spk.KODE_POS}</td>
                   <td>{spk.PIC}</td>
