@@ -36,7 +36,7 @@ function FormTeknisi() {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        autocomplete="given-name"
+                  
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
@@ -98,7 +98,7 @@ function FormTeknisi() {
                       <select
                         id="country"
                         name="country"
-                        autocomplete="country-name"
+                 
                         className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       >
                         <option>Berhasil</option>
@@ -133,12 +133,12 @@ function FormTeknisi() {
                         type="text"
                         name="city"
                         id="city"
-                        autocomplete="address-level2"
+                    
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
-                    <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                       <label
                         for="postal-code"
                         className="block text-sm font-medium text-gray-700"
@@ -149,20 +149,20 @@ function FormTeknisi() {
                         type="text"
                         name="postal-code"
                         id="postal-code"
-                        autocomplete="postal-code"
+             
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
                   </div>
                   <br/>
                   <label
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   for="file_input"
                 >
                   Upload Bukti Pemasangan
                 </label>
                 <input
-                  class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                  className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   id="file_input"
                   type="file"
                   placeholder="Berdasarkan FKM"

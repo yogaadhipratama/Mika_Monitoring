@@ -27,7 +27,7 @@ function InputSpk() {
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
                         <label
-                          for="nomor-spk"
+                          htmlFor="nomor-spk"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Nomor SPK
@@ -42,7 +42,7 @@ function InputSpk() {
 
                       <div className="col-span-6 sm:col-span-3">
                         <label
-                          for="jenis-spk"
+                          htmlFor="jenis-spk"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Jenis SPK
@@ -55,10 +55,10 @@ function InputSpk() {
                         />
                       </div>
 
-                        {/* /Date picker here ========================== */}
-                        <div className="col-span-6 sm:col-span-3">
+                      {/* /Date picker here ========================== */}
+                      <div className="col-span-6 sm:col-span-3">
                         <label
-                          for="tanggal-spk"
+                          htmlFor="tanggal-spk"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Tanggal SPK
@@ -72,10 +72,10 @@ function InputSpk() {
                       </div>
                       {/* ========================== */}
 
-                        {/* /Date picker here ========================== */}
-                        <div className="col-span-6 sm:col-span-3">
+                      {/* /Date picker here ========================== */}
+                      <div className="col-span-6 sm:col-span-3">
                         <label
-                          for="tanggal-pasang"
+                          htmlFor="tanggal-pasang"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Tanggal Pemasangan EDC
@@ -91,7 +91,7 @@ function InputSpk() {
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="MID"
+                          htmlFor="MID"
                           className="block text-sm font-medium text-gray-700"
                         >
                           MID (8 digits)
@@ -106,7 +106,7 @@ function InputSpk() {
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="TID"
+                          htmlFor="TID"
                           className="block text-sm font-medium text-gray-700"
                         >
                           TID (8 digits)
@@ -121,7 +121,7 @@ function InputSpk() {
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="merchant"
+                          htmlFor="merchant"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Nama Merchant
@@ -133,13 +133,10 @@ function InputSpk() {
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         />
                       </div>
-                    
-
-                     
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="ode-agen"
+                          htmlFor="ode-agen"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Kode Agen
@@ -154,7 +151,7 @@ function InputSpk() {
 
                       <div className="col-span-6">
                         <label
-                          for="alamat"
+                          htmlFor="alamat"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Alamat
@@ -163,14 +160,14 @@ function InputSpk() {
                           type="text"
                           name="alamat"
                           id="alamat"
-                          autocomplete="address-level2"
+                     
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         />
                       </div>
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="city"
+                          htmlFor="city"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Kota
@@ -179,14 +176,14 @@ function InputSpk() {
                           type="text"
                           name="city"
                           id="city"
-                          autocomplete="address-level2"
+                     
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         />
                       </div>
 
-                      <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                      <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                         <label
-                          for="postal-code"
+                          htmlFor="postal-code"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Kode Pos
@@ -195,14 +192,14 @@ function InputSpk() {
                           type="text"
                           name="postal-code"
                           id="postal-code"
-                          autocomplete="postal-code"
+                    
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         />
                       </div>
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="pic"
+                          htmlFor="pic"
                           className="block text-sm font-medium text-gray-700"
                         >
                           PIC
@@ -217,7 +214,7 @@ function InputSpk() {
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="email"
+                          htmlFor="email"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Email
@@ -232,7 +229,7 @@ function InputSpk() {
 
                       <div className="col-span-6 sm:col-span-4">
                         <label
-                          for="rekening"
+                          htmlFor="rekening"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Nomor Rekening (4 Digit Terakhir)
@@ -246,8 +243,26 @@ function InputSpk() {
                       </div>
                     </div>
                     <br />
-                 
                   </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="country"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Status Pemasangan
+                      </label>
+                      <select
+                        id="country"
+                        name="country"
+                   
+                        className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      >
+                        <option>Berhasil</option>
+                        <option>Gagal</option>
+                        <option>Pending(Belum dilakukan pemasangan)</option>
+                      </select>
+                    </div>
 
                   <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                     <button
