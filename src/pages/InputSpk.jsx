@@ -5,6 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function InputSpk() {
   //validation ============
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const regexNum = /^\d+$/
   const initialValues = {
     nomorspk: "",
     jenisspk: "",
@@ -17,10 +19,14 @@ function InputSpk() {
     kodepos: "",
     pic: "",
     email: "",
+    rekening:"",
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [startDatePasang, setStartDatePasang] = useState(new Date());
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,10 +56,21 @@ function InputSpk() {
     }
     if (!values.mid) {
       errors.mid = "Mohon isi MID";
+    }else if(!regexNum.test(values.mid)&& values.mid.length !== 8){
+      errors.mid = "Mohon Masukkan MID dengan Benar (8 Angka)"
+    }else if(values.mid.length !== 8){
+      errors.mid = "Harus 8 digit angka"
     }
+
     if (!values.tid) {
       errors.tid = "Mohon isi TID";
+    }else if(!regexNum.test(values.tid)){
+      console.log(values.tid.length)
+      errors.tid = "Mohon Masukkan TID dengan Benar (8 Angka)"
+    }else if(values.tid.length !== 8){
+      errors.tid = "Harus 8 digit angka"
     }
+
     if (!values.merchant) {
       errors.merchant = "Mohon isi nama merchant";
     }
@@ -72,20 +89,26 @@ function InputSpk() {
     if (!values.kodepos) {
       errors.kodepos = "Mohon isi kodepos";
     }
+    if (!values.rekening) {
+      errors.rekening = "Mohon isi rekening";
+    }
+
     if (!values.email) {
       errors.email = "Mohon isi email";
+    }else if(!regex.test(values.email)){
+      errors.email = "Mohon masukkan email dengan benar"
     }
 
     return errors;
   };
 
-  const [startDate, setStartDate] = useState(new Date());
+  
   return (
     <div>
       {Object.keys(errors).length === 0 && isSubmit ? (
         <div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
         <div className="flex">
-          <div className="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+          <div className="py-1"><svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
           <div>
             <p className="font-bold">Data berhasil ditambahkan</p>
           
@@ -164,7 +187,7 @@ function InputSpk() {
                         Tanggal SPK
                       </label>
                       <DatePicker
-                        value={startDate}
+                     
                         className="mt-1 block w-100 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         selected={startDate}
                         // onChange={handleChange}
@@ -183,13 +206,13 @@ function InputSpk() {
                         Tanggal Pemasangan EDC
                       </label>
                       <DatePicker
-                        value={startDate}
+                       
                         className="mt-1 block w-100 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        selected={startDate}
+                        selected={startDatePasang}
                         // value={formValues.tanggalpasang}
                         // onChange={handleChange}
                         dateFormat="dd/MM/yyyy"
-                        onChange={(date: Date) => setStartDate(date)}
+                        onChange={(date: Date) => setStartDatePasang(date)}
                       />
                     </div>
                     {/* ========================== */}
@@ -229,10 +252,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.tid}
                     </p>
+                    </div>
                     <div className="col-span-6 sm:col-span-4">
                       <label
                         htmlFor="merchant"
@@ -248,10 +271,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.merchant}
                     </p>
+                    </div>
                     <div className="col-span-6 sm:col-span-4">
                       <label
                         htmlFor="kode-agen"
@@ -267,10 +290,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.kodeagen}
                     </p>
+                    </div>
                     <div className="col-span-8 sm:col-span-4">
                       <label
                         htmlFor="alamat"
@@ -286,10 +309,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.alamat}
                     </p>
+                    </div>
                     <div className="col-span-6 sm:col-span-4 ">
                       <label
                         htmlFor="city"
@@ -305,10 +328,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.kota}
                     </p>
+                    </div>
 
                     <div className="col-span-6 sm:col-span-3 ">
                       <label
@@ -325,10 +348,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.kodepos}
                     </p>
+                    </div>
                     <div className="col-span-6 sm:col-span-4">
                       <label
                         htmlFor="pic"
@@ -344,10 +367,10 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.pic}
                     </p>
+                    </div>
 
                     <div className="col-span-6 sm:col-span-4">
                       <label
@@ -364,25 +387,29 @@ function InputSpk() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.email}
                     </p>
+                    </div>
                     <div className="col-span-6 sm:col-span-4">
                       <label
                         htmlFor="rekening"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Rekening (4 Digit Terakhir, Optional)
+                        Rekening
                       </label>
+                      
                       <input
-                        // value={formValues.rekening}
+                        value={formValues.rekening}
                         type="text"
                         name="rekening"
                         id="rekening"
-                        // onChange={handleChange}
+                        onChange={handleChange}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
+                      <p style={{ color: "red", fontStyle: "italic" }}>
+                        {errors.rekening}
+                      </p>
                     </div>
 
                     <div className="col-span-6 sm:col-span-3">

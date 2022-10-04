@@ -1,4 +1,4 @@
-import DataResults from "../components/users/DataResults";
+import DataResults from "../components/dataspk/DataResults";
 
 
 function Home() {
