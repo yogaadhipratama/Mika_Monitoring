@@ -10,8 +10,6 @@ function InputSpk() {
     jenisspk: "",
     mid: "",
     tid: "",
-    // tanggalspk:startDate,
-    // tanggalpasang: startDate,
     merchant: "",
     kodeagen: "",
     alamat: "",
@@ -95,7 +93,8 @@ function InputSpk() {
         </div>
       </div>
       ) : (
-        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+        // <pre>{JSON.stringify(formValues, undefined, 2)}</pre> <
+        <p></p>
       )}
 
       <div className="mt-10 sm:mt-0">
@@ -272,7 +271,7 @@ function InputSpk() {
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.kodeagen}
                     </p>
-                    <div className="col-span-6">
+                    <div className="col-span-8 sm:col-span-4">
                       <label
                         htmlFor="alamat"
                         className="block text-sm font-medium text-gray-700"
@@ -291,7 +290,7 @@ function InputSpk() {
                     <p style={{ color: "red", fontStyle: "italic" }}>
                       {errors.alamat}
                     </p>
-                    <div className="col-span-6 sm:col-span-4">
+                    <div className="col-span-6 sm:col-span-4 ">
                       <label
                         htmlFor="city"
                         className="block text-sm font-medium text-gray-700"
@@ -311,7 +310,7 @@ function InputSpk() {
                       {errors.kota}
                     </p>
 
-                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <div className="col-span-6 sm:col-span-3 ">
                       <label
                         htmlFor="postal-code"
                         className="block text-sm font-medium text-gray-700"
