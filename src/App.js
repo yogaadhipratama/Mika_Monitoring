@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import NotFound from "./pages/Notfound";
 import Login from "./pages/Login";
-import FormTeknisi from "./pages/FormTeknisi";
+
 import DaftarTeknisi from "./pages/DaftarTeknisi";
 import InputSpk from "./pages/InputSpk";
 
@@ -13,12 +13,10 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col justify-between h-screen">
-     
         <Navbar />
-        <main className="container mx-auto mx-3 pb-12">
+        <main className="container mx-auto  pb-12">
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/formteknisi" element={<FormTeknisi />} />
             <Route path="/daftarbaru" element={<DaftarTeknisi />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

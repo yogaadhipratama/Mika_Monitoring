@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { read, utils, writeFile } from "xlsx";
 import * as XLSX from 'xlsx';
 
-function UserResults() {
+function DataResults() {
   const [spk, setSpk] = useState([]);
 
   const handleImport = ($event) => {
@@ -26,10 +26,6 @@ function UserResults() {
           setSpk(rows);
         }
 
-        // if (sheets2.length) {
-        //   const rows = utils.sheet_to_json(wb.Sheets[sheets2[0]]);
-        //   setSpk(rows);
-        // }
       };
       reader.readAsArrayBuffer(file);
     }
@@ -178,4 +174,4 @@ function UserResults() {
   );
 }
 
-export default UserResults;
+export default DataResults;
