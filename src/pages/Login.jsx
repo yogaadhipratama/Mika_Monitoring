@@ -5,7 +5,7 @@ function Login() {
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center inline-flex ">
         <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
           <div className="self-start hidden lg:flex flex-col  text-white">
-            <h1 className="font-extrabold  text-6xl bg-clip-text ">MIKA WEB Monitoring</h1>
+            <h1 className="font-extrabold  text-6xl bg-clip-text ">MIKA WEB MONITORING</h1>
             <p className="text-gray-200 text-2xl">
               Web Monitoring pemasangan EDC BNI AGEN46, silahkan masuk terlebih
               dahulu untuk melakukan report.
