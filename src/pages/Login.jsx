@@ -5,9 +5,9 @@ function Login() {
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center inline-flex ">
         <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
           <div className="self-start hidden lg:flex flex-col  text-white">
-            <h1 className="font-extrabold  text-6xl bg-clip-text ">MIKA WEB REPORTING</h1>
+            <h1 className="font-extrabold  text-6xl bg-clip-text ">MIKA WEB Monitoring</h1>
             <p className="text-gray-200 text-2xl">
-              Web reporting pemasangan EDC BNI AGEN46, silahkan masuk terlebih
+              Web Monitoring pemasangan EDC BNI AGEN46, silahkan masuk terlebih
               dahulu untuk melakukan report.
             </p>
           </div>
@@ -15,7 +15,7 @@ function Login() {
         <div className="flex justify-center self-center  z-10">
           <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
             <div className="mb-4">
-              <h3 className="font-semibold text-2xl text-gray-800 ">Mika Web Reporting</h3>
+              <h3 className="font-semibold text-2xl text-gray-800 ">Mika Web Monitoring</h3>
            
             </div>
             <div className="space-y-5">

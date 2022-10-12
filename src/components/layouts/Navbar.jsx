@@ -25,7 +25,7 @@ function Navbar({ title }) {
 }
 
 Navbar.defaultProps = {
-  title: "REPORTING WEB MIKA",
+  title: "ROLLOUT MONITORING WEB",
 };
 
 Navbar.propTypes = {
