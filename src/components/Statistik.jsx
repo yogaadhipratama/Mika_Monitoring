@@ -6,14 +6,14 @@ function Statistik() {
           <div className="stat-figure text-primary">
           </div>
           <div className="stat-title">Total EDC</div>
-          <div className="stat-value text-primary">1481</div>
+          <div className="stat-value text-primary">3481</div>
         </div>
 
         <div className="stat">
           <div className="stat-figure text-secondary">
           </div>
           <div className="stat-title">Belum Terpasang</div>
-          <div className="stat-value text-secondary">500</div>
+          <div className="stat-value text-secondary">2500</div>
         </div>
 
         <div className="stat">
