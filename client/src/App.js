@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/Notfound";
 import Login from "./pages/Login";
 
-import DaftarTeknisi from "./pages/DaftarTeknisi";
+import NewUser from "./pages/NewUser";
 import InputSpk from "./pages/InputSpk";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <main className="container mx-auto  pb-12">
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/daftarbaru" element={<DaftarTeknisi />} />
+            <Route path="/daftarbaru" element={<NewUser />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/notfound" element={<NotFound />} />
