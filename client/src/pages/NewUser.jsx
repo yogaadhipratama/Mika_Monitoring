@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import Axios from "axios";
-import { ToasterContainer, toast } from "react-toastify";
+// import { ToasterContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "../components/layouts/Navbar";
 
 function NewUser() {
   const [usernameReg, setUsernameReg] = useState("");
@@ -11,13 +12,7 @@ function NewUser() {
   const [open, setOpen] = useState(false);
   const options = ["admin", "user"];
   const [role, setRole] = useState(options[1]);
-  // console.log(role);
-  let arrRole = [role];
 
-  // let arrRole = [...role]
-  // console.log(typeof(arrRole))
-  // console.log([...role]);
-  // console.log();
   const register = (event) => {
     event.preventDefault();
     Axios.post("/api/auth/signup", {
@@ -30,18 +25,15 @@ function NewUser() {
         setUsernameReg("");
         setPasswordReg("");
         setEmailReg("");
+        console.log(res);
         if (res.status === 200) {
           alert("User baru berhasil ditambahkan");
         }
-        //   console.log(res.status);
-        //   if (res.status == 400) {
-        //     console.log("user sudah ada");
-        //   }
       })
       .catch((error) => {
         if (error.response.status === 400) {
           alert(
-            "Email atau username sudah pernah dipakai sebelumnya, coba yang lain"
+            "Email atau username sudah pernah dipakai sebelumnya"
           );
         }
       });
@@ -54,6 +46,7 @@ function NewUser() {
 
   return (
     <div className="bg-grey-lighter flex flex-col">
+      <Navbar/>
       <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
         <div className=" bg-gradient-to-b from-white-500 to-black-600 px-6 py-8 rounded shadow-md text-black w-full">
           <h1 className="mb-8 text-3xl text-center font-semibold">

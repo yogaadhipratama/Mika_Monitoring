@@ -1,10 +1,70 @@
 import { useState } from "react";
-// import Axios from 'axios'
+import useAuth from "../hooks/useAuth";
+import AuthContext from "../context/AuthProvider";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import Axios from "axios";
 
 function Login() {
-  const [usernameLogin, setUsernameLogin] = useState("");
-  const [passwordLogin, setPasswordLogin] = useState("");
-  
+  const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // const from = "/";
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await Axios.post(
+        "/api/auth/signin",
+        JSON.stringify({ username, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ username, password, roles, accessToken });
+      navigate(from, { replace: true });
+    } catch (error) {
+      if (error.response?.status === 401) {
+        alert("Username atau password tidak sesuai");
+      }
+      if (error.response?.status === 404) {
+        alert("Username tidak ditemukan");
+      }
+    }
+  };
+
+  // const signin = (event) => {
+  //   event.preventDefault();
+
+  //   Axios.post("/api/auth/signin", {
+  //     username: usernameLogin,
+  //     password: passwordLogin,
+  //   })
+  //     .then((res) => {
+  //       if (res.data.accessToken) {
+  //         localStorage.setItem("user", JSON.stringify(res.data));
+  //       }
+  //       const accessToken = res?.data?.accessToken;
+  //       const roles = res?.data?.roles;
+  //       setAuth({ usernameLogin, passwordLogin, roles, accessToken });
+  //       console.log(res);
+  //       navigate(from, { replace: true });
+  //     })
+  //     .catch((err) => {
+  //       if (err.response.status === 401) {
+  //         alert("Username atau password tidak sesuai");
+  //       }
+  //     });
+  // };
 
   return (
     <div className="bg-no-repeat bg-cover bg-center relative">
@@ -35,11 +95,12 @@ function Login() {
                 </label>
                 <input
                   onChange={(e) => {
-                    setUsernameLogin(e.target.value);
+                    setUsername(e.target.value);
                   }}
+                  value={username}
                   className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-blue-400"
-                  type=""
-                  placeholder="username"
+                  type="text"
+                  placeholder="Username"
                 />
               </div>
               <div className="space-y-2">
@@ -47,17 +108,19 @@ function Login() {
                   Password
                 </label>
                 <input
+                  type="password"
+                  value={password}
                   onChange={(e) => {
-                    setPasswordLogin(e.target.value);
+                    setPassword(e.target.value);
                   }}
                   className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-blue-400"
-                  type=""
                   placeholder="Masukkan password"
                 />
               </div>
               <div className="flex items-center justify-between"></div>
               <div>
                 <button
+                  onClick={signin}
                   type="submit"
                   className="w-full flex justify-center bg-blue-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
                 >
@@ -65,7 +128,6 @@ function Login() {
                 </button>
               </div>
             </div>
-            <div className="pt-5 text-center text-gray-400 text-xs"></div>
           </div>
         </div>
       </div>
